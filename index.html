@@ -3,118 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Al Barr Automotive</title>
+    <title>Al Barr Automotive | Official Store</title>
     
-    <!-- Font Awesome Link (Icons ke liye zaroori hai) -->
+    <!-- Font Awesome Icons Link -->
     <link rel="stylesheet" href="https://cloudflare.com">
 
     <style>
-        /* Basic Page Styling */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f9fa;
+        /* 1. Global Styles & Reset */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            color: #333;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            padding: 40px 20px;
         }
 
-        /* Business Card / Contact Box Styling */
-        .contact-card {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            text-align: center;
-            max-width: 400px;
+        /* Main Wrapper Container */
+        .wrapper {
+            max-width: 900px;
             width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
         }
 
-        /* Logo Styling */
-        .logo-container img {
-            max-width: 250px;
+        /* 2. Top Header & Contact Card Styling */
+        .profile-card {
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            padding: 40px 30px;
+            text-align: center;
+            border-top: 5px solid #004085;
+        }
+
+        .logo-box img {
+            max-width: 280px;
+            width: 100%;
             height: auto;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         /* Contact Details Layout */
-        .contact-info {
-            margin-top: 25px;
-            text-align: left;
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
         }
 
-        .info-item {
+        /* Row item for email/whatsapp */
+        .link-row {
             display: flex;
             align-items: center;
-            margin-bottom: 15px;
-            font-size: 16px;
+            background: #f8f9fa;
+            padding: 14px 25px;
+            border-radius: 30px;
+            width: 100%;
+            max-width: 450px;
+            text-decoration: none;
             color: #333;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
         }
 
-        /* Icons Common Styling */
-        .info-item i {
-            font-size: 20px;
-            width: 30px;
+        .link-row i {
+            font-size: 22px;
+            margin-right: 15px;
+            width: 25px;
             text-align: center;
-            margin-right: 12px;
         }
 
-        /* Specific Icons Colors */
-        .fa-envelope {
+        /* Individual Button Hovers & Icon Colors */
+        .link-row.email-btn i {
             color: #ea4335; /* Gmail Red */
         }
+        .link-row.email-btn:hover {
+            background: #fdf2f2;
+            border-color: #f5c2c2;
+            transform: translateY(-2px);
+        }
 
-        .fa-whatsapp {
+        .link-row.whatsapp-btn i {
             color: #25d366; /* WhatsApp Green */
         }
-
-        /* Links Styling */
-        .info-item a {
-            color: #004085;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s ease;
+        .link-row.whatsapp-btn:hover {
+            background: #eefbf2;
+            border-color: #c7eed4;
+            transform: translateY(-2px);
         }
 
-        .info-item a:hover {
-            text-decoration: underline;
-            color: #002752;
+        /* 3. eBay Listings Section Styling */
+        .ebay-container {
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            padding: 35px 25px;
+        }
+
+        .ebay-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 25px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .ebay-title i {
+            color: #004085;
+        }
+
+        /* Footer text copyright */
+        .footer-credit {
+            text-align: center;
+            font-size: 13px;
+            color: #a0a0a0;
+            margin-top: 15px;
+        }
+
+        /* Responsive adjustments for mobile screens */
+        @media (max-width: 480px) {
+            body {
+                padding: 20px 15px;
+            }
+            .profile-card {
+                padding: 30px 20px;
+            }
+            .link-row {
+                font-size: 14px;
+                padding: 12px 18px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="contact-card">
-        <!-- Logo Section -->
-        <div class="logo-container">
-            <!-- Jab aap logo file GitHub par upload karein, toh uska jo bhi naam ho (jaise logo.png) woh yahan src="" mein likh dein -->
-            <img src="logo.png" alt="Al Barr Automotive Logo">
-        </div>
+    <!-- Main Content Wrapper -->
+    <div class="wrapper">
+        
+        <!-- Profile / Branding Card Section -->
+        <header class="profile-card">
+            <div class="logo-box">
+                <!-- Make sure to upload your image as 'logo.png' in the same repository folder -->
+                <img src="logo.png" alt="Al Barr Automotive Logo">
+            </div>
 
-        <!-- Contact Information Section -->
-        <div class="contact-info">
+            <!-- Clickable Interactive Contact Rows -->
+            <div class="contact-links">
+                
+                <!-- Email Row Button -->
+                <a href="mailto:albarrautomotive@gmail.com" class="link-row email-btn">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>albarrautomotive@gmail.com</span>
+                </a>
+
+                <!-- WhatsApp Row Button -->
+                <a href="https://wa.me" target="_blank" class="link-row whatsapp-btn">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span>+44 7401 123453</span>
+                </a>
+
+            </div>
+        </header>
+
+        <!-- Live eBay Feed Section -->
+        <section class="ebay-container">
+            <h2 class="ebay-title">
+                <i class="fa-solid fa-tags"></i> Our Live eBay Listings
+            </h2>
             
-            <!-- Email Option -->
-            <div class="info-item">
-                <i class="fa-solid fa-envelope"></i>
-                <span><strong>Email:</strong> <a href="mailto:albarrautomotive@gmail.com">albarrautomotive@gmail.com</a></span>
-            </div>
+            <!-- AUCTION NUDGE WIDGET CODE -->
+            <div id="osd-ebay-listings"></div>
+            <script type="text/javascript" src="https://auctionfeedonyourwebsite.co.uk 4/English/24/0/1/1/EndTimeSoonest/0/1/All/0/0/1/cccccc/777777/ffffff/1/albarrautomotive.co.uk/"></script>
+            <!-- END OF WIDGET CODE -->
+        </section>
 
-            <!-- WhatsApp / Phone Option -->
-            <div class="info-item">
-                <i class="fa-brands fa-whatsapp"></i>
-                <span><strong>WhatsApp:</strong> <a href="https://wa.me" target="_blank">+44 7401 123453</a></span>
-            </div>
+        <!-- Footer Copyright -->
+        <footer class="footer-credit">
+            &copy; 2026 Al Barr Automotive Limited. All Rights Reserved.
+        </footer>
 
-        </div>
     </div>
-
-    <!-- AUCTION NUDGE CODE STARTS HERE -->
-        <div id="osd-ebay-listings"></div><script type="text/javascript" src="https://www.auctionfeedonyourwebsite.co.uk/js/v1/al-barrautomotive/3/Grid 4/English/24/0/1/1/EndTimeSoonest/0/1/All/0/0/1/cccccc/777777/ffffff/1/albarrautomotive.co.uk/"></script>
-    </div>
-    <!-- AUCTION NUDGE CODE ENDS HERE -->
 
 </body>
 </html>
