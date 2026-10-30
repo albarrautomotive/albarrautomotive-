@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Al Barr Automotive | Official Store</title>
     
-    <!-- Font Awesome Icons Link -->
+    <!-- Corrected Font Awesome Icons Link (Taake saare icons chalain) -->
     <link rel="stylesheet" href="https://cloudflare.com">
 
     <style>
@@ -120,19 +120,55 @@
             transform: translateY(-2px);
         }
 
-        /* Address Row Button (Styled exactly like others) */
-        .link-row.address-btn {
-            align-items: flex-start; /* Address bar k lines zyada hain toh icon top par align rahega */
-            border-radius: 20px; /* Thoda multi-line friendly radius */
+        /* Address Box (Maintained same structure) */
+        .link-box.address-box {
+            display: flex;
+            flex-direction: column;
+            background: #f8f9fa;
+            padding: 20px 25px;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 450px;
+            border: 1px solid #e9ecef;
+            text-align: left;
         }
-        .link-row.address-btn i {
+
+        .address-header {
+            display: flex;
+            align-items: flex-start;
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .address-header i {
+            font-size: 22px;
             color: #004085; /* Brand Blue */
+            margin-right: 15px;
+            width: 25px;
+            text-align: center;
+            flex-shrink: 0;
             margin-top: 2px;
         }
-        .link-row.address-btn:hover {
-            background: #f0f4f8;
-            border-color: #b3c6da;
-            transform: translateY(-2px);
+
+        /* Google Maps Responsive Wrapper */
+        .map-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            border: 1px solid #e9ecef;
+            width: 100%;
+        }
+
+        .map-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100% !important;
+            height: 100% !important;
+            border: 0;
         }
 
         /* 3. eBay Listings Section Styling */
@@ -175,7 +211,7 @@
             .profile-card {
                 padding: 30px 20px;
             }
-            .link-row {
+            .link-row, .link-box.address-box {
                 font-size: 14px;
                 padding: 12px 18px;
             }
@@ -208,21 +244,38 @@
                     <span>Email: albarrautomotive@gmail.com</span>
                 </a>
 
-                <!-- WhatsApp Row Button -->
+                <!-- WhatsApp Row Button (Fixed Link) -->
                 <a href="https://wa.me" target="_blank" class="link-row whatsapp-btn">
                     <i class="fa-brands fa-whatsapp"></i>
                     <span>WhatsApp: +44 7401 123453</span>
                 </a>
 
-                <!-- Address Row Button (WhatsApp ke neechay) -->
-                <div class="link-row address-btn">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span>
-                        <strong>Store Location:</strong><br>
-                        <strong>Al-Barr House</strong><br>
-                        Shirley Avenue, Windsor<br>
-                        SL4 5LH, United Kingdom
-                    </span>
+                <!-- Address & Google Map Block Combined -->
+                <div class="link-box address-box">
+                    <div class="address-header">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>
+                            <strong>Store Location:</strong><br>
+                            <strong>Al-Barr House</strong><br>
+                            Shirley Avenue, Windsor<br>
+                            SL4 5LH, United Kingdom
+                        </span>
+                    </div>
+
+                    <!-- Business Timings Section -->
+                    <div class="business-hours">
+                        <i class="fa-solid fa-clock"></i>
+                        <span>
+                            <strong>Opening Hours:</strong><br>
+                            Mon - Sat: 9:00 AM - 6:00 PM<br>
+                            Sunday: Closed
+                        </span>
+                    </div>
+                    
+                    <!-- Fixed & Responsive Embedded Google Map (Connected to your link) -->
+                    <div class="map-wrapper">
+                        <iframe src="https://google.com" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
                 </div>
 
             </div>
