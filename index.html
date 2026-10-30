@@ -50,6 +50,15 @@
             max-width: 280px;
             width: 100%;
             height: auto;
+            margin-bottom: 15px;
+        }
+
+        /* Centered H1 Heading Styling */
+        .main-title {
+            text-align: center;
+            color: #004085;
+            font-size: 26px;
+            font-weight: 700;
             margin-bottom: 25px;
         }
 
@@ -62,7 +71,7 @@
             margin-top: 10px;
         }
 
-        /* Row item for email/whatsapp */
+        /* Row item for email/whatsapp/address */
         .link-row {
             display: flex;
             align-items: center;
@@ -77,6 +86,7 @@
             font-size: 16px;
             transition: all 0.3s ease;
             border: 1px solid #e9ecef;
+            text-align: left; /* Text alignment left taake center alignment maintain rahe but block uniform dikhe */
         }
 
         .link-row i {
@@ -84,6 +94,11 @@
             margin-right: 15px;
             width: 25px;
             text-align: center;
+            flex-shrink: 0;
+        }
+
+        .link-row span {
+            line-height: 1.4;
         }
 
         /* Individual Button Hovers & Icon Colors */
@@ -102,6 +117,21 @@
         .link-row.whatsapp-btn:hover {
             background: #eefbf2;
             border-color: #c7eed4;
+            transform: translateY(-2px);
+        }
+
+        /* Address Row Button (Styled exactly like others) */
+        .link-row.address-btn {
+            align-items: flex-start; /* Address bar k lines zyada hain toh icon top par align rahega */
+            border-radius: 20px; /* Thoda multi-line friendly radius */
+        }
+        .link-row.address-btn i {
+            color: #004085; /* Brand Blue */
+            margin-top: 2px;
+        }
+        .link-row.address-btn:hover {
+            background: #f0f4f8;
+            border-color: #b3c6da;
             transform: translateY(-2px);
         }
 
@@ -149,6 +179,9 @@
                 font-size: 14px;
                 padding: 12px 18px;
             }
+            .main-title {
+                font-size: 22px;
+            }
         }
     </style>
 </head>
@@ -158,12 +191,13 @@
     <div class="wrapper">
         
         <!-- Profile / Branding Card Section -->
-        <h1 style="text-align: center;">Al-Barr Automotive Limited</h1>
         <header class="profile-card">
             <div class="logo-box">
-                <!-- Make sure to upload your image as 'logo.png' in the same repository folder -->
                 <img src="albarr-logo-jpeg.jpg" alt="Al Barr Automotive Logo">
             </div>
+
+            <!-- Centered H1 Heading -->
+            <h1 class="main-title">Al-Barr Automotive Limited</h1>
 
             <!-- Clickable Interactive Contact Rows -->
             <div class="contact-links">
@@ -177,22 +211,23 @@
                 <!-- WhatsApp Row Button -->
                 <a href="https://wa.me" target="_blank" class="link-row whatsapp-btn">
                     <i class="fa-brands fa-whatsapp"></i>
-                    <span>WhatsApp +44 7401 123453</span>
+                    <span>WhatsApp: +44 7401 123453</span>
                 </a>
- <!-- Centered Address Box (WhatsApp ke neechay) -->
-                <div class="address-box">
+
+                <!-- Address Row Button (WhatsApp ke neechay) -->
+                <div class="link-row address-btn">
                     <i class="fa-solid fa-location-dot"></i>
-                    <p class="address-text">
+                    <span>
                         <strong>Al-Barr House</strong><br>
-                        Shirley Avenue<br>
-                        Windsor<br>
-                        SL4 5LH<br>
-                        United Kingdom
-                    </p>
+                        Shirley Avenue, Windsor<br>
+                        SL4 5LH, United Kingdom
+                    </span>
+                </div>
+
             </div>
         </header>
 
-        <!-- Live eBay Feed Section -->
+         <!-- Live eBay Feed Section -->
         <section class="ebay-container">
             <h2 class="ebay-title">
                 <i class="fa-solid fa-tags"></i> Our Live eBay Listings
