@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al Barr Automotive | Official Store</title>
+    
+    <!-- Font Awesome Icons Link -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+
+    <style>
+        /* 1. Global Styles & Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        /* Main Wrapper Container */
+        .wrapper {
+            max-width: 900px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        /* 2. Top Header & Contact Card Styling */
+        .profile-card {
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            padding: 40px 30px;
+            text-align: center;
+            border-top: 5px solid #004085;
+        }
+
+        .logo-box img {
+            max-width: 280px;
+            width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        /* Centered H1 Heading Styling */
+        .main-title {
+            text-align: center;
+            color: #004085;
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        /* Contact Details Layout */
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        /* Row item for email/whatsapp/address */
+        .link-row {
+            display: flex;
+            align-items: center;
+            background: #f8f9fa;
+            padding: 14px 25px;
+            border-radius: 30px;
+            width: 100%;
+            max-width: 450px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+            text-align: left; /* Text alignment left taake center alignment maintain rahe but block uniform dikhe */
+        }
+
+        .link-row i {
+            font-size: 22px;
+            margin-right: 15px;
+            width: 25px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .link-row span {
+            line-height: 1.4;
+        }
+
+        /* Individual Button Hovers & Icon Colors */
+        .link-row.email-btn i {
+            color: #ea4335; /* Gmail Red */
+        }
+        .link-row.email-btn:hover {
+            background: #fdf2f2;
+            border-color: #f5c2c2;
+            transform: translateY(-2px);
+        }
+
+        .link-row.whatsapp-btn i {
+            color: #25d366; /* WhatsApp Green */
+        }
+        .link-row.whatsapp-btn:hover {
+            background: #eefbf2;
+            border-color: #c7eed4;
+            transform: translateY(-2px);
+        }
+
+        /* Address Row Button (Styled exactly like others) */
+        .link-row.address-btn {
+            align-items: flex-start; /* Address bar k lines zyada hain toh icon top par align rahega */
+            border-radius: 20px; /* Thoda multi-line friendly radius */
+        }
+        .link-row.address-btn i {
+            color: #004085; /* Brand Blue */
+            margin-top: 2px;
+        }
+        .link-row.address-btn:hover {
+            background: #f0f4f8;
+            border-color: #b3c6da;
+            transform: translateY(-2px);
+        }
+
+        /* 3. eBay Listings Section Styling */
+        .ebay-container {
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            padding: 35px 25px;
+        }
+
+        .ebay-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 25px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .ebay-title i {
+            color: #004085;
+        }
+
+        /* Footer text copyright */
+        .footer-credit {
+            text-align: center;
+            font-size: 13px;
+            color: #a0a0a0;
+            margin-top: 15px;
+        }
+
+        /* Responsive adjustments for mobile screens */
+        @media (max-width: 480px) {
+            body {
+                padding: 20px 15px;
+            }
+            .profile-card {
+                padding: 30px 20px;
+            }
+            .link-row {
+                font-size: 14px;
+                padding: 12px 18px;
+            }
+            .main-title {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Content Wrapper -->
+    <div class="wrapper">
+        
+        <!-- Profile / Branding Card Section -->
+        <header class="profile-card">
+            <div class="logo-box">
+                <img src="albarr-logo-jpeg.jpg" alt="Al Barr Automotive Logo">
+            </div>
+
+            <!-- Centered H1 Heading -->
+            <h1 class="main-title">Al-Barr Automotive Limited</h1>
+
+            <!-- Clickable Interactive Contact Rows -->
+            <div class="contact-links">
+                
+                <!-- Email Row Button -->
+                <a href="mailto:albarrautomotive@gmail.com" class="link-row email-btn">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>Email: albarrautomotive@gmail.com</span>
+                </a>
+
+                <!-- WhatsApp Row Button -->
+                <a href="https://wa.me" target="_blank" class="link-row whatsapp-btn">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span>WhatsApp: +44 7401 123453</span>
+                </a>
+
+                <!-- Address Row Button (WhatsApp ke neechay) -->
+                <div class="link-row address-btn">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>
+                        <strong>Store Location:</strong><br>
+                        <strong>Al-Barr House</strong><br>
+                        Shirley Avenue, Windsor<br>
+                        SL4 5LH, United Kingdom
+                    </span>
+                </div>
+
+            </div>
+        </header>
+
+         <!-- Live eBay Feed Section -->
+        <section class="ebay-container">
+            <h2 class="ebay-title">
+                <i class="fa-solid fa-tags"></i> Our Live eBay Listings
+            </h2>
+            
+            <!-- AUCTION NUDGE WIDGET CODE -->
+            <div id="osd-ebay-listings"></div><script type="text/javascript" src="https://www.auctionfeedonyourwebsite.co.uk/js/v1/al-barrautomotive/3/Grid 4/English/24/0/1/1/EndTimeSoonest/0/1/All/0/0/1/cccccc/777777/ffffff/1/albarrautomotive.co.uk/"></script>
+            <!-- END OF WIDGET CODE -->
+        </section>
+
+        <!-- Footer Copyright -->
+        <footer class="footer-credit">
+            &copy; Al Barr Automotive Limited. All Rights Reserved.
+        </footer>
+
+    </div>
+
+</body>
+</html>
