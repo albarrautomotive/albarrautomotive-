@@ -3,17 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Albarra Automotive - eBay Store</title>
+    <title>Al Barr Automotive</title>
+    
+    <!-- Font Awesome Link (Icons ke liye zaroori hai) -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f4; padding: 20px; }
-        h1 { color: #333; }
-        .contact-info { background: #fff; padding: 15px; margin: 20px auto; max-width: 600px; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); }
-        #auction-nudge-items { max-width: 1200px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; }
+        /* Basic Page Styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Business Card / Contact Box Styling */
+        .contact-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        /* Logo Styling */
+        .logo-container img {
+            max-width: 250px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        /* Contact Details Layout */
+        .contact-info {
+            margin-top: 25px;
+            text-align: left;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        /* Icons Common Styling */
+        .info-item i {
+            font-size: 20px;
+            width: 30px;
+            text-align: center;
+            margin-right: 12px;
+        }
+
+        /* Specific Icons Colors */
+        .fa-envelope {
+            color: #ea4335; /* Gmail Red */
+        }
+
+        .fa-whatsapp {
+            color: #25d366; /* WhatsApp Green */
+        }
+
+        /* Links Styling */
+        .info-item a {
+            color: #004085;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .info-item a:hover {
+            text-decoration: underline;
+            color: #002752;
+        }
     </style>
 </head>
 <body>
 
-    <h1>Albarra Automotive</h1>
+    <div class="contact-card">
+        <!-- Logo Section -->
+        <div class="logo-container">
+            <!-- Jab aap logo file GitHub par upload karein, toh uska jo bhi naam ho (jaise logo.png) woh yahan src="" mein likh dein -->
+            <img src="logo.png" alt="Al Barr Automotive Logo">
+        </div>
+
+        <!-- Contact Information Section -->
+        <div class="contact-info">
+            
+            <!-- Email Option -->
+            <div class="info-item">
+                <i class="fa-solid fa-envelope"></i>
+                <span><strong>Email:</strong> <a href="mailto:albarrautomotive@gmail.com">albarrautomotive@gmail.com</a></span>
+            </div>
+
+            <!-- WhatsApp / Phone Option -->
+            <div class="info-item">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span><strong>WhatsApp:</strong> <a href="https://wa.me" target="_blank">+44 7401 123453</a></span>
+            </div>
+
+        </div>
+    </div>
+
+<body>
+
+    <h1>Albarra Automotive Limited</h1>
     
     <div class="contact-info">
         <h3>Contact Us</h3>
