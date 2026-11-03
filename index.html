@@ -4,255 +4,286 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Al Barr Automotive | Official Store</title>
-    
-    <!-- Corrected Font Awesome Icons Link (Taake saare icons chalain) -->
-    <link rel="stylesheet" href="https://cloudflare.com">
+
+    <!-- Font Awesome (corrected link) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* 1. Global Styles & Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        :root {
+            --navy: #0a2540;
+            --blue: #004085;
+            --blue-soft: #e8f0fa;
+            --bg: #eef1f5;
+            --surface: #ffffff;
+            --surface-2: #f5f7fa;
+            --text: #1d2733;
+            --muted: #5d6b7a;
+            --line: #dde3ea;
+            --shadow: 0 1px 2px rgba(10, 37, 64, .06), 0 12px 32px rgba(10, 37, 64, .08);
+            --radius: 18px;
         }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --navy: #06121f;
+                --blue: #5b9bff;
+                --blue-soft: #14283f;
+                --bg: #0b1520;
+                --surface: #121f2d;
+                --surface-2: #182739;
+                --text: #e6edf5;
+                --muted: #9aabbd;
+                --line: #25364a;
+                --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 12px 32px rgba(0, 0, 0, .35);
+            }
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { -webkit-text-size-adjust: 100%; }
 
         body {
-            background-color: #f4f6f9;
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            font-family: 'Manrope', 'Segoe UI', Tahoma, Verdana, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
             min-height: 100vh;
-            padding: 40px 20px;
+            padding: 32px 20px 24px;
         }
 
-        /* Main Wrapper Container */
         .wrapper {
-            max-width: 900px;
-            width: 100%;
+            max-width: 1040px;
+            margin: 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: 28px;
         }
 
-        /* 2. Top Header & Contact Card Styling */
+        a:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+
+        /* ---------- Header card ---------- */
         .profile-card {
-            background: #ffffff;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            padding: 40px 30px;
-            text-align: center;
-            border-top: 5px solid #004085;
+            background: var(--surface);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
         }
 
+        .brand-band {
+            background: var(--navy);
+            padding: 36px 24px 32px;
+            text-align: center;
+            border-bottom: 4px solid var(--blue);
+        }
+
+        .logo-box {
+            display: inline-block;
+            background: #ffffff;
+            padding: 14px 22px;
+            border-radius: 14px;
+            margin-bottom: 20px;
+        }
         .logo-box img {
-            max-width: 280px;
+            display: block;
+            max-width: 240px;
             width: 100%;
             height: auto;
-            margin-bottom: 15px;
         }
 
-        /* Centered H1 Heading Styling */
         .main-title {
-            text-align: center;
-            color: #004085;
-            font-size: 26px;
-            font-weight: 700;
-            margin-bottom: 25px;
+            font-family: 'Archivo', 'Segoe UI', sans-serif;
+            font-size: clamp(24px, 4vw, 34px);
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            color: #ffffff;
         }
 
-        /* Contact Details Layout */
+        /* ---------- Contact layout ---------- */
         .contact-links {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            margin-top: 10px;
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 28px;
+            padding: 30px;
+            align-items: start;
         }
 
-        /* Row item for email/whatsapp/address */
+        .contact-col { display: flex; flex-direction: column; gap: 14px; }
+
         .link-row {
             display: flex;
             align-items: center;
-            background: #f8f9fa;
-            padding: 14px 25px;
-            border-radius: 30px;
-            width: 100%;
-            max-width: 450px;
+            gap: 14px;
+            background: var(--surface-2);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 14px 18px;
             text-decoration: none;
-            color: #333;
+            color: var(--text);
             font-weight: 600;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            border: 1px solid #e9ecef;
-            text-align: left; /* Text alignment left taake center alignment maintain rahe but block uniform dikhe */
+            font-size: 15px;
+            overflow-wrap: anywhere;
+            transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
         }
-
         .link-row i {
-            font-size: 22px;
-            margin-right: 15px;
-            width: 25px;
-            text-align: center;
             flex-shrink: 0;
+            display: grid;
+            place-items: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            font-size: 19px;
+            background: var(--surface);
         }
+        .link-row:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(10, 37, 64, .1); }
+        .link-row.email-btn i { color: #ea4335; }
+        .link-row.email-btn:hover { border-color: #ea4335; }
+        .link-row.whatsapp-btn i { color: #25d366; }
+        .link-row.whatsapp-btn:hover { border-color: #25d366; }
 
-        .link-row span {
-            line-height: 1.4;
-        }
-
-        /* Individual Button Hovers & Icon Colors */
-        .link-row.email-btn i {
-            color: #ea4335; /* Gmail Red */
-        }
-        .link-row.email-btn:hover {
-            background: #fdf2f2;
-            border-color: #f5c2c2;
-            transform: translateY(-2px);
-        }
-
-        .link-row.whatsapp-btn i {
-            color: #25d366; /* WhatsApp Green */
-        }
-        .link-row.whatsapp-btn:hover {
-            background: #eefbf2;
-            border-color: #c7eed4;
-            transform: translateY(-2px);
-        }
-
-        /* Address Box (Maintained same structure) */
-        .link-box.address-box {
+        /* Info blocks: address + hours */
+        .info-block {
             display: flex;
-            flex-direction: column;
-            background: #f8f9fa;
-            padding: 20px 25px;
-            border-radius: 20px;
-            width: 100%;
-            max-width: 450px;
-            border: 1px solid #e9ecef;
-            text-align: left;
-        }
-
-        .address-header {
-            display: flex;
+            gap: 14px;
             align-items: flex-start;
-            font-size: 16px;
-            color: #333;
-            margin-bottom: 15px;
+            background: var(--surface-2);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 16px 18px;
+            font-size: 15px;
+            color: var(--muted);
         }
-
-        .address-header i {
-            font-size: 22px;
-            color: #004085; /* Brand Blue */
-            margin-right: 15px;
-            width: 25px;
-            text-align: center;
+        .info-block i {
             flex-shrink: 0;
-            margin-top: 2px;
+            display: grid;
+            place-items: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--blue-soft);
+            color: var(--blue);
+            font-size: 18px;
         }
+        .info-block strong { color: var(--text); }
 
-        /* Google Maps Responsive Wrapper */
+        /* Map column */
+        .map-col { display: flex; flex-direction: column; gap: 14px; }
+
+        .map-link-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: var(--blue);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            padding: 13px 20px;
+            border-radius: 12px;
+            transition: filter .2s ease, transform .2s ease;
+        }
+        @media (prefers-color-scheme: dark) { .map-link-btn { color: #06121f; } }
+        .map-link-btn:hover { filter: brightness(1.1); transform: translateY(-1px); }
+
         .map-wrapper {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            padding-bottom: 68%;
             height: 0;
             overflow: hidden;
-            border-radius: 12px;
-            border: 1px solid #e9ecef;
-            width: 100%;
+            border-radius: 14px;
+            border: 1px solid var(--line);
         }
-
         .map-wrapper iframe {
             position: absolute;
-            top: 0;
-            left: 0;
+            inset: 0;
             width: 100% !important;
             height: 100% !important;
             border: 0;
         }
 
-        /* 3. eBay Listings Section Styling */
+        /* ---------- eBay section ---------- */
         .ebay-container {
-            background: #ffffff;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            padding: 35px 25px;
+            background: var(--surface);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 34px 28px;
         }
-
         .ebay-title {
-            font-size: 22px;
+            font-family: 'Archivo', 'Segoe UI', sans-serif;
+            font-size: 24px;
             font-weight: 700;
-            color: #222;
-            margin-bottom: 25px;
+            color: var(--text);
             text-align: center;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 12px;
+            margin-bottom: 8px;
         }
-
-        .ebay-title i {
-            color: #004085;
+        .ebay-title i { color: var(--blue); }
+        .ebay-title::after { content: none; }
+        .ebay-container .title-rule {
+            width: 56px;
+            height: 3px;
+            background: var(--blue);
+            border-radius: 3px;
+            margin: 0 auto 26px;
         }
+        .ebay-container #auction-nudge-c71225a8d { overflow-x: auto; }
 
-        /* Footer text copyright */
+        /* ---------- Footer ---------- */
         .footer-credit {
             text-align: center;
             font-size: 13px;
-            color: #a0a0a0;
-            margin-top: 15px;
+            color: var(--muted);
+            padding: 4px 0 8px;
         }
 
-        /* Responsive adjustments for mobile screens */
+        /* ---------- Responsive ---------- */
+        @media (max-width: 800px) {
+            .contact-links { grid-template-columns: 1fr; padding: 22px 18px; }
+        }
         @media (max-width: 480px) {
-            body {
-                padding: 20px 15px;
-            }
-            .profile-card {
-                padding: 30px 20px;
-            }
-            .link-row, .link-box.address-box {
-                font-size: 14px;
-                padding: 12px 18px;
-            }
-            .main-title {
-                font-size: 22px;
-            }
+            body { padding: 18px 12px; }
+            .brand-band { padding: 28px 16px 26px; }
+            .link-row, .info-block { font-size: 14px; padding: 12px 14px; }
+            .ebay-container { padding: 26px 16px; }
+            .ebay-title { font-size: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Main Content Wrapper -->
     <div class="wrapper">
-        
-        <!-- Profile / Branding Card Section -->
+
+        <!-- Profile / Branding Card -->
         <header class="profile-card">
-            <div class="logo-box">
-                <img src="albarr-logo-jpeg.jpg" alt="Al Barr Automotive Logo">
+            <div class="brand-band">
+                <div class="logo-box">
+                    <img src="albarr-logo-jpeg.jpg" alt="Al Barr Automotive Logo">
+                </div>
+                <h1 class="main-title">Al-Barr Automotive Limited</h1>
             </div>
 
-            <!-- Centered H1 Heading -->
-            <h1 class="main-title">Al-Barr Automotive Limited</h1>
-
-            <!-- Clickable Interactive Contact Rows -->
             <div class="contact-links">
-                
-                <!-- Email Row Button -->
-                <a href="mailto:albarrautomotive@gmail.com" class="link-row email-btn">
-                    <i class="fa-solid fa-envelope"></i>
-                    <span>Email: albarrautomotive@gmail.com</span>
-                </a>
 
-                <!-- WhatsApp Row Button (Fixed Link) -->
-                <a href="https://wa.me" target="_blank" class="link-row whatsapp-btn">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    <span>WhatsApp: +44 7401 123453</span>
-                </a>
+                <!-- Left column: contact + info -->
+                <div class="contact-col">
+                    <a href="mailto:albarrautomotive@gmail.com" class="link-row email-btn">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>Email: albarrautomotive@gmail.com</span>
+                    </a>
 
-                <!-- Address & Google Map Block Combined -->
-                <div class="link-box address-box">
-                    <div class="address-header">
+                    <!-- WhatsApp link fixed: number added to URL -->
+                    <a href="https://wa.me/447401123453" target="_blank" rel="noopener" class="link-row whatsapp-btn">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <span>WhatsApp: +44 7401 123453</span>
+                    </a>
+
+                    <div class="info-block">
                         <i class="fa-solid fa-location-dot"></i>
                         <span>
                             <strong>Store Location:</strong><br>
@@ -262,8 +293,7 @@
                         </span>
                     </div>
 
-                    <!-- Business Timings Section -->
-                    <div class="business-hours">
+                    <div class="info-block business-hours">
                         <i class="fa-solid fa-clock"></i>
                         <span>
                             <strong>Opening Hours:</strong><br>
@@ -271,32 +301,34 @@
                             Sunday: Closed
                         </span>
                     </div>
-                    
-                    <!-- Direct Clickable Google Maps Link Button -->
-                    <a href="https://maps.app.goo.gl/aXvgnpjRs6rs2bAw7" target="_blank" class="map-link-btn">
+                </div>
+
+                <!-- Right column: map -->
+                <div class="map-col">
+                    <a href="https://maps.app.goo.gl/aXvgnpjRs6rs2bAw7" target="_blank" rel="noopener" class="map-link-btn">
                         <i class="fa-solid fa-arrow-up-right-from-square"></i> Open in Google Maps
                     </a>
-                   
-                    <!-- Embedded Visual Google Map -->
+
                     <div class="map-wrapper">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2484.7197032168165!2d-0.6363357230317275!3d51.48165911258296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48767be48be5290f%3A0xd95aa4028b9004fe!2sAl-Barr%20Automotive%20Ltd.!5e0!3m2!1sen!2suk!4v1793381867488!5m2!1sen!2suk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                        <iframe title="Al-Barr Automotive location map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2484.7197032168165!2d-0.6363357230317275!3d51.48165911258296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48767be48be5290f%3A0xd95aa4028b9004fe!2sAl-Barr%20Automotive%20Ltd.!5e0!3m2!1sen!2suk!4v1793381867488!5m2!1sen!2suk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
                     </div>
-                    
                 </div>
+
             </div>
         </header>
 
-         <!-- Live eBay Feed Section -->
+        <!-- Live eBay Feed Section -->
         <section class="ebay-container">
             <h2 class="ebay-title">
                 <i class="fa-solid fa-tags"></i> Our Live eBay Listings
             </h2>
-            
+            <div class="title-rule"></div>
+
             <!-- AUCTION NUDGE WIDGET CODE -->
-<script type="text/javascript" src="https://www.auctionnudge.com/feed/item/js/theme/responsive/page/init/img_size/140/cats_output/dropdown/search_box/1/user_profile/1/add_details/1/show_logo/1/lang/english/SellerID/al-barrautomotive/siteid/3/MaxEntries/24/sortOrder/PricePlusShippingHighest/target/c71225a8d"></script><div id="auction-nudge-c71225a8d"></div>            <!-- END OF WIDGET CODE -->
+<script type="text/javascript" src="https://www.auctionnudge.com/feed/item/js/theme/responsive/page/init/img_size/140/cats_output/dropdown/search_box/1/user_profile/1/add_details/1/show_logo/1/lang/english/SellerID/al-barrautomotive/siteid/3/MaxEntries/24/sortOrder/PricePlusShippingHighest/target/c71225a8d"></script><div id="auction-nudge-c71225a8d"></div>
+            <!-- END OF WIDGET CODE -->
         </section>
 
-        <!-- Footer Copyright -->
         <footer class="footer-credit">
             &copy; Al Barr Automotive Limited. All Rights Reserved.
         </footer>
