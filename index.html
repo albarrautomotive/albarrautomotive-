@@ -340,17 +340,41 @@
     <!-- Keeps the address bar clean: removes the #auction-nudge-... hash the widget adds on Next/Prev -->
     <script>
         (function () {
-            function cleanHash() {
-                if (location.hash.indexOf('#auction-nudge') === 0) {
-                    history.replaceState(null, '', location.pathname + location.search);
+            var PREFIX = 'auction-nudge';
+            var clean = location.pathname + location.search;
+            var rawReplace = history.replaceState.bind(history);
+            var rawPush = history.pushState.bind(history);
+
+            function stripHash() {
+                if (location.hash.indexOf('#' + PREFIX) === 0) {
+                    rawReplace(null, '', clean);
                 }
             }
-            window.addEventListener('hashchange', cleanHash);
+            function isNudgeUrl(u) {
+                return typeof u === 'string' && u.indexOf('#' + PREFIX) !== -1;
+            }
+
+            // 1) If the widget uses the History API, drop the hash from the URL it sets
+            history.pushState = function (s, t, u) {
+                return rawPush(s, t, isNudgeUrl(u) ? clean : u);
+            };
+            history.replaceState = function (s, t, u) {
+                return rawReplace(s, t, isNudgeUrl(u) ? clean : u);
+            };
+
+            // 2) Stop the browser from adding the hash on anchor clicks; scroll to the widget manually
             document.addEventListener('click', function (e) {
-                var a = e.target.closest && e.target.closest('a[href^="#auction-nudge"]');
-                if (a) { setTimeout(cleanHash, 0); }
-            });
-            cleanHash();
+                var a = e.target.closest && e.target.closest('a[href^="#' + PREFIX + '"]');
+                if (!a) return;
+                e.preventDefault();
+                var target = document.getElementById(a.getAttribute('href').slice(1));
+                if (target) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+            }, true);
+
+            // 3) Fallbacks: hash set directly via JavaScript
+            window.addEventListener('hashchange', stripHash);
+            setInterval(stripHash, 150);
+            stripHash();
         })();
     </script>
 
