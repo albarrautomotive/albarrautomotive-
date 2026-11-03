@@ -73,22 +73,24 @@
         }
 
         .brand-band {
-            background: var(--navy);
-            padding: 36px 24px 32px;
+            background: #0a2540; /* navy */
+            padding: 34px 24px 30px;
             text-align: center;
-            border-bottom: 4px solid var(--blue);
+            border-bottom: 4px solid #a6192e; /* red taken from the logo */
         }
 
+        /* White plate keeps the JPEG logo clean on navy */
         .logo-box {
             display: inline-block;
             background: #ffffff;
-            padding: 14px 22px;
-            border-radius: 14px;
+            padding: 10px 26px;
+            border-radius: 16px;
             margin-bottom: 20px;
+            max-width: 100%;
         }
         .logo-box img {
             display: block;
-            max-width: 240px;
+            max-width: 400px;
             width: 100%;
             height: auto;
         }
@@ -334,6 +336,23 @@
         </footer>
 
     </div>
+
+    <!-- Keeps the address bar clean: removes the #auction-nudge-... hash the widget adds on Next/Prev -->
+    <script>
+        (function () {
+            function cleanHash() {
+                if (location.hash.indexOf('#auction-nudge') === 0) {
+                    history.replaceState(null, '', location.pathname + location.search);
+                }
+            }
+            window.addEventListener('hashchange', cleanHash);
+            document.addEventListener('click', function (e) {
+                var a = e.target.closest && e.target.closest('a[href^="#auction-nudge"]');
+                if (a) { setTimeout(cleanHash, 0); }
+            });
+            cleanHash();
+        })();
+    </script>
 
 </body>
 </html>
